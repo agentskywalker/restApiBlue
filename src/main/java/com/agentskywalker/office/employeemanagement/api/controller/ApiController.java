@@ -1,29 +1,26 @@
-package com.agentskywalker.office.employeemanagement.controller;
+package com.agentskywalker.office.employeemanagement.api.controller;
 
-import com.agentskywalker.office.employeemanagement.common.entity.Employee;
-import com.agentskywalker.office.employeemanagement.service.EmployeeSevice;
-import javafx.scene.input.DataFormat;
+import com.agentskywalker.office.employeemanagement.api.common.entity.Employee;
+import com.agentskywalker.office.employeemanagement.api.service.EmployeeSevice;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 @RestController
 @RequestMapping("/api")
-public class AppController {
+public class ApiController {
 
     private EmployeeSevice employeeSevice;
-    private static final Logger logger = LoggerFactory.getLogger(AppController.class);
+    private static final Logger logger = LoggerFactory.getLogger(ApiController.class);
 
     @Autowired
-    public AppController(EmployeeSevice employeeSevice) {
+    public ApiController(EmployeeSevice employeeSevice) {
         this.employeeSevice = employeeSevice;
     }
 
@@ -85,13 +82,23 @@ public class AppController {
 
     @GetMapping("/employee/{sid}")
     public Employee getEmployeeById(@PathVariable String    sid){
-
+        logger.info("Controller : Method :: AppController : getEmployeeById()");
         return this.employeeSevice.getEmployeeBySid(sid);
     }
 
     @GetMapping("/employees")
     public List<Employee> getAllEmployees(){
-
+        logger.info("Controller : Method :: AppController : employees()");
         return this.employeeSevice.getAllEmployees();
     }
+
+    //@PostMapping("/saveEmployee", "consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}")
+    @PostMapping(value = "/save", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    public Employee saveEmployee(@RequestBody Employee employee){
+        logger.info("Controller : Method :: AppController : saveEmployee()");
+        Employee    employee1 = this.employeeSevice.saveEmployee(employee);
+        return  employee1;
+    }
+
+
 }

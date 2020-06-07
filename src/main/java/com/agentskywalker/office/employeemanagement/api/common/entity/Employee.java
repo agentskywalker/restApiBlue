@@ -1,4 +1,4 @@
-package com.agentskywalker.office.employeemanagement.common.entity;
+package com.agentskywalker.office.employeemanagement.api.common.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

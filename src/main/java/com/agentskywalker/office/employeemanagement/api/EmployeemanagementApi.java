@@ -1,22 +1,21 @@
-package com.agentskywalker.office.employeemanagement;
+package com.agentskywalker.office.employeemanagement.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
-import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-public class EmployeemanagementApplication extends SpringBootServletInitializer {
+public class EmployeemanagementApi extends SpringBootServletInitializer {
 
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder applicationBuilder){
-		return applicationBuilder.sources(EmployeemanagementApplication.class);
+		return applicationBuilder.sources(EmployeemanagementApi.class);
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(EmployeemanagementApplication.class, args);
+		SpringApplication.run(EmployeemanagementApi.class, args);
 	}
 
 }

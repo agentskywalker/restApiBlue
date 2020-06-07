@@ -1,11 +1,8 @@
-package com.agentskywalker.office.employeemanagement.common.repository;
+package com.agentskywalker.office.employeemanagement.api.common.repository;
 
-import com.agentskywalker.office.employeemanagement.common.entity.Employee;
+import com.agentskywalker.office.employeemanagement.api.common.entity.Employee;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface EmployeeRepository extends CrudRepository<Employee, String> {

@@ -1,16 +1,14 @@
-package com.agentskywalker.office.employeemanagement.service;
+package com.agentskywalker.office.employeemanagement.api.service;
 
-import com.agentskywalker.office.employeemanagement.common.entity.Employee;
-import com.agentskywalker.office.employeemanagement.common.repository.EmployeeRepository;
+import com.agentskywalker.office.employeemanagement.api.common.entity.Employee;
+import com.agentskywalker.office.employeemanagement.api.common.repository.EmployeeRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class EmployeeSevice {
