@@ -90,14 +90,20 @@ public class ApiController {
     public List<Employee> getAllEmployees(){
         logger.info("Controller : Method :: AppController : employees()");
         return this.employeeSevice.getAllEmployees();
+
+        /*List employeeList = this.employeeSevice.getAllEmployees();
+        return  employeeList;*/
+
     }
 
     //@PostMapping("/saveEmployee", "consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}")
     @PostMapping(value = "/save", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     public Employee saveEmployee(@RequestBody Employee employee){
         logger.info("Controller : Method :: AppController : saveEmployee()");
-        Employee    employee1 = this.employeeSevice.saveEmployee(employee);
-        return  employee1;
+        return this.employeeSevice.saveEmployee(employee);
+
+        /*Employee    employee1 = this.employeeSevice.saveEmployee(employee);
+        return  employee1;*/
     }
 
 
